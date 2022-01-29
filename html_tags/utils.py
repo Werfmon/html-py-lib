@@ -1,6 +1,6 @@
 def format_pair_tag(content=None, child=None, tag_name='div', 
                     other=None, **kwargs):
-                    
+
     attributes = ''
 
     for name in kwargs:
@@ -29,10 +29,10 @@ def format_single_tag(tag_name=None, other=None, **kwargs):
     return f"<{tag_name}{attributes} />"
 
 
-def nextRender(other):
+def nextRender(attributes):
     attr = ''
-    if(not other):
+    if(not attributes):
         return attr
-    for key, value in other.items():
+    for key, value in attributes.items():
         attr += f' {key}="{value}"'
     return attr

@@ -1,8 +1,9 @@
+from tkinter.ttk import Style
 import html_tags as html
 from html_tags import render
 
-html_fname = html.Input(placeholder='Zadej jmeno', name='jmeno')
-html_lname = html.Input(placeholder='Zadej prijmeni', name='prijmeni')
+html_fname = html.Input(other={'placeholder': 'Zadej jmeno'}, name='jmeno')
+html_lname = html.Input(other={'placeholder': 'Zadej prijmeni'}, name='prijmeni')
 
 html_option_muz = html.Option(value='muz', content='Muz')
 html_option_zena = html.Option(value='zena', content='Zena')
@@ -20,11 +21,13 @@ form = html.Form(
 
 div = html.Div(
     child=[form, html_submit],
-    other={'id': 'container', 'style': 'width: 10rem;'})
+    other={'id': 'container'}
+    )
 
 render(div, 'hello',
        title='Part I.',
        head_tags={'meta': [
            {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge'},
            {'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0'}
-       ]})
+       ]},
+       style={'#container': {'width': '10rem'}})
