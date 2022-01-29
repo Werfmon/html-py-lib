@@ -1,1 +1,3 @@
-from .tags import A, Div, Img, Input, Select, Option, Form
+from .tags import Div, A, Form, Option, Select, Img, Input
+from .render import render
+
