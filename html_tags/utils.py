@@ -4,20 +4,31 @@ def format_pair_tag(content=None, child=None, tag_name='div', other=None, **kwar
     for name in kwargs:
         if(kwargs[name] == None): 
             continue
-        attributes += f'{name}="{kwargs[name]}" '
+        attributes += f' {name}="{kwargs[name]}"'
+    attributes += nextRender(other)
     struct = ''
     if type(child) == list:
         for value in child:
             struct += str(value)
     else: 
         struct = child
-    return f"<{tag_name} {attributes}>{struct if struct else content}</{tag_name}>"
+    return f"<{tag_name}{attributes}>{struct if struct else content}</{tag_name}>"
 
-def format_single_tag(tag_name='br',other=None, **kwargs):
+def format_single_tag(tag_name=None, other=None, **kwargs):
+    if not tag_name: 
+        return ''
     attributes = ''
     for name in kwargs:
         if(kwargs[name] == None): 
             continue
-        attributes += f'{name}="{kwargs[name]}" '
-    return f"<{tag_name} {attributes} />"
-     
+        attributes += f' {name}="{kwargs[name]}"'
+    attributes += nextRender(other)
+    return f"<{tag_name}{attributes} />"
+
+def nextRender(other):
+    attr = ''
+    if(not other):
+        return attr
+    for key, value in other.items():
+        attr += f' {key}="{value}"'
+    return attr

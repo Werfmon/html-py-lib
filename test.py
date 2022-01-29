@@ -12,4 +12,6 @@ html_select_pohlavi = html.Select(name='pohlavi', child=[html_option_muz, html_o
 
 form = html.Form(child=[html_fname, html_lname, html_select_pohlavi])
 
-render(form, 'hello')
+div = html.Div(child=form, other={'id': 'dsa'})
+
+render(div, 'hello', title='ahoj', head_tags={'meta': [{'charset': 'UTF-8'}, {'http-equiv': 'refresh', 'content': '3'}]})
