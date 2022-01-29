@@ -1,4 +1,4 @@
-def format_pair_tag(content=None, child=None, tag_name='div', 
+def format_pair_tag(content=None, child=None, tag_name='div',
                     other=None, **kwargs):
 
     attributes = ''
@@ -7,7 +7,7 @@ def format_pair_tag(content=None, child=None, tag_name='div',
         if(kwargs[name] == None):
             continue
         attributes += f' {name}="{kwargs[name]}"'
-    attributes += nextRender(other)
+    attributes += render_attr(other)
     struct = ''
     if type(child) == list:
         for value in child:
@@ -25,11 +25,11 @@ def format_single_tag(tag_name=None, other=None, **kwargs):
         if(kwargs[name] == None):
             continue
         attributes += f' {name}="{kwargs[name]}"'
-    attributes += nextRender(other)
+    attributes += render_attr(other)
     return f"<{tag_name}{attributes} />"
 
 
-def nextRender(attributes):
+def render_attr(attributes):
     attr = ''
     if(not attributes):
         return attr

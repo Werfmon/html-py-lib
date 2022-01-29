@@ -1,5 +1,5 @@
-from html_tags.utils import nextRender
-
+from bs4 import BeautifulSoup
+from html_tags.utils import render_attr
 
 def render(struct, name='index', code_lang='html', lang='en',
            title='document', charset='UTF-8', head_tags=None, style=None):
@@ -12,15 +12,15 @@ def render(struct, name='index', code_lang='html', lang='en',
     head = ''
     for tag, tag_list in head_tags.items():
         for attr in tag_list:
-            head += f'<{tag}{nextRender(attr)}/>'
+            head += f'<{tag}{render_attr(attr)}/>'
 
     styles = ''
     if style:
         for selector, param in style.items():
             styles += selector + '{'
             for key, value in param.items():
-                styles += f'{key}:{value};\n'
-            styles += '}\n'
+                styles += f'{key}:{value};'
+            styles += '}'
 
 
     boilerplate += f"""
@@ -38,6 +38,6 @@ def render(struct, name='index', code_lang='html', lang='en',
         </body>
         </html>
     """
-    file = open(f'{name}.{code_lang}', "w")
-    file.write(boilerplate)
-    file.close()
+    with open(f'{name}.{code_lang}', 'w') as file:
+        soup = BeautifulSoup(boilerplate, 'html.parser')
+        file.write(soup.prettify())

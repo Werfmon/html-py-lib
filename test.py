@@ -1,4 +1,3 @@
-from tkinter.ttk import Style
 import html_tags as html
 from html_tags import render
 

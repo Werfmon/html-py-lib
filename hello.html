@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Part I.</title>
-    <style>
-      #container {
-        width: 10rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-      <form style="display: flex; flex-direction: column">
-        <input type="text" name="jmeno" placeholder="Zadej jmeno" />
-        <input type="text" name="prijmeni" placeholder="Zadej prijmeni" />
-        <select name="pohlavi">
-          <option value="muz">Muz</option>
-          <option value="zena">Zena</option>
-          <option value="jine">Jine</option>
-        </select>
-      </form>
-      <input value="Register" type="submit" />
-    </div>
-  </body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+   <title>
+    Part I.
+   </title>
+   <style>
+    #container{width:10rem;}
+   </style>
+  </meta>
+ </head>
+ <body>
+  <div id="container">
+   <form style="display: flex; flex-direction: column">
+    <input name="jmeno" placeholder="Zadej jmeno" type="text"/>
+    <input name="prijmeni" placeholder="Zadej prijmeni" type="text"/>
+    <select name="pohlavi">
+     <option value="muz">
+      Muz
+     </option>
+     <option value="zena">
+      Zena
+     </option>
+     <option value="jine">
+      Jine
+     </option>
+    </select>
+   </form>
+   <input type="submit" value="Register"/>
+  </div>
+ </body>
 </html>
