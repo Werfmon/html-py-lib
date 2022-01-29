@@ -1,6 +1,8 @@
 from html_tags.utils import nextRender
 
-def render(struct, name='index', code_lang='html', lang='en', title='document', charset='UTF-8', head_tags=None):
+
+def render(struct, name='index', code_lang='html', lang='en',
+           title='document', charset='UTF-8', head_tags=None):
 
     boilerplate = ''
 

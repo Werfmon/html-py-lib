@@ -8,10 +8,23 @@ html_option_muz = html.Option(value='muz', content='Muz')
 html_option_zena = html.Option(value='zena', content='Zena')
 html_option_jine = html.Option(value='jine', content='Jine')
 
-html_select_pohlavi = html.Select(name='pohlavi', child=[html_option_muz, html_option_zena, html_option_jine])
+html_select_pohlavi = html.Select(
+    name='pohlavi',
+    child=[html_option_muz, html_option_zena, html_option_jine])
 
-form = html.Form(child=[html_fname, html_lname, html_select_pohlavi])
+html_submit = html.Input(_type='submit', value='Register')
 
-div = html.Div(child=form, other={'id': 'container'})
+form = html.Form(
+    child=[html_fname, html_lname, html_select_pohlavi],
+    other={'style': 'display: flex; flex-direction: column'})
 
-render(div, 'hello', title='Part I.', head_tags={'meta': [{'http-equiv':'X-UA-Compatible', 'content': 'IE=edge'}, {'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0'}]})
+div = html.Div(
+    child=[form, html_submit],
+    other={'id': 'container', 'style': 'width: 10rem;'})
+
+render(div, 'hello',
+       title='Part I.',
+       head_tags={'meta': [
+           {'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge'},
+           {'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0'}
+       ]})
